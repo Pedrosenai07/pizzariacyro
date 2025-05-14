@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Pizzaria do Cyro</title>
+</head>
+<body>
+ <!-- NAVBAR -->
+<nav class="bg-white dark:bg-gray-800 antialiased">
+  <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+    <div class="flex items-center justify-between">
+      
+      <!-- Logo + Menu de navegação -->
+      <div class="flex items-center space-x-8">
+        <!-- Logo -->
+        <div class="shrink-0">
+          <a href="#" title="Pizzaria Bella Napoli">
+            <img class="block w-auto h-20 dark:hidden" src="pizzacyro.jpg" alt="Logo Pizzaria do Cyro">
+          </a>
+        </div>
+
+        <!-- Menu de navegação -->
+        <ul class="hidden lg:flex items-center gap-6 md:gap-8 py-3">
+          <li><a href="#" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Início</a></li>
+          <li><a href="#cardapio" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Cardápio</a></li>
+          <li><a href="#monte-sua-pizza" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Monte sua Pizza</a></li>
+          <li><a href="#promocoes" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Promoções</a></li>
+          <li><a href="#contato" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Carrinho + Conta -->
+      <div class="flex items-center lg:space-x-2">
+        <!-- Botão Carrinho -->
+        <button id="cartDropdownButton" data-dropdown-toggle="cartDropdown"
+          class="inline-flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium text-gray-900 dark:text-white">
+          <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4" />
+          </svg>
+          <span class="hidden sm:flex">Pedidos</span>
+        </button>
+
+        <!-- Dropdown de pedidos -->
+        <div id="cartDropdown" class="hidden z-10 max-w-sm w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">Pizza Família + Guaraná 2L</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">R$ 70,00</p>
+              </div>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only">Remover</span>
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">Pizza Média + Coca 2L</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">R$ 45,00</p>
+              </div>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only">Remover</span>
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">Esfirra de Carne + Coca Zero</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">R$ 32,00 (x2)</p>
+              </div>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only">Remover</span>
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="text-right">
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Total: R$ 179,00</p>
+              <a href="#checkout"
+                class="text-sm font-medium text-white bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 rounded px-4 py-2 mt-2 inline-block">Finalizar Pedido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão Conta -->
+        <div class="relative ml-2">
+          <button id="userButton" data-dropdown-toggle="userDropdown" type="button"
+            class="flex items-center gap-1 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium text-gray-900 dark:text-white">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2"
+                d="M16 14a4 4 0 1 0-8 0m8 0a4 4 0 1 1-8 0m8 0v1a5 5 0 0 1-10 0v-1m5-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+            </svg>
+            <span class="hidden sm:inline">Conta</span>
+            <svg class="w-4 h-4 hidden sm:inline" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" d="m19 9-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown da Conta -->
+          <div id="userDropdown"
+            class="hidden z-20 absolute right-0 mt-2 w-48 rounded-lg bg-white shadow-lg dark:bg-gray-800 p-4 space-y-3">
+            <!-- Se o usuário NÃO estiver logado -->
+            <div class="flex flex-col space-y-2">
+              <a href="#" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Entrar</a>
+              <a href="#" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Cadastrar</a>
+            </div>
+            <hr class="border-gray-300 dark:border-gray-600">
+            <!-- Se o usuário estiver logado -->
+            <div class="flex flex-col space-y-2">
+              <a href="#" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Minha Conta</a>
+              <a href="#" class="text-sm font-medium text-gray-900 hover:text-red-600 dark:text-white dark:hover:text-red-400">Meus Pedidos</a>
+              <a href="#" class="text-sm font-medium text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-500">Sair</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- HERO SECTION - Pizzaria -->
+<section class="bg-white dark:bg-gray-900">
+  <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+    <div class="mr-auto place-self-center lg:col-span-7">
+      <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+        A melhor pizza da cidade entregue quentinha na sua casa!
+      </h1>
+      <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+        Escolha entre dezenas de sabores irresistíveis e receba em poucos minutos. Sabor, qualidade e tradição direto do nosso forno para sua mesa.
+      </p>
+      <a href="#cardapio" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+        Ver Cardápio
+        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+      <a href="#contato" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+        Fale Conosco
+      </a>
+    </div>
+    <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+      <img src="pizza.jpg" alt="Pizza deliciosa">
+    </div>
+  </div>
+</section>
+ <!--APRESENTATION SECTION - Sabores mais pedidos-->
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+        Sabores Mais Pedidos
+      </h2>
+      <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
+        Descubra as delícias favoritas dos nossos clientes — pizzas irresistíveis que conquistam todos os paladares!
+      </p>
+    </div>
+
+    <!-- Swiper Carrossel -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="w-full h-64 object-cover rounded-t-lg" src="calabresa.jpg" alt="Pizza Calabresa">
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Calabresa</h3>
+              <p class="mt-2 font-light text-gray-500 dark:text-gray-400">A clássica dos apaixonados por sabor marcante. Queijo, calabresa, cebola e orégano.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="w-full h-64 object-cover rounded-t-lg" src="frangocatupiry.jpg" alt="Frango com Catupiry">
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Frango com Catupiry</h3>
+              <p class="mt-2 font-light text-gray-500 dark:text-gray-400">Uma explosão cremosa! Frango desfiado com o autêntico catupiry derretido.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="w-full h-64 object-cover rounded-t-lg" src="quatroqueijos.jpg" alt="Quatro Queijos">
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Quatro Queijos</h3>
+              <p class="mt-2 font-light text-gray-500 dark:text-gray-400">Para os amantes do queijo! Mussarela, parmesão, gorgonzola e catupiry.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="w-full h-64 object-cover rounded-t-lg" src="portuguesa.jpg" alt="Portuguesa">
+            <div class="p-5 text-center">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Portuguesa</h3>
+              <p class="mt-2 font-light text-gray-500 dark:text-gray-400">Presunto, ovos, cebola, azeitona, pimentão e queijo: uma combinação deliciosa e completa.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botões de navegação -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+ <!--CATEGORY - Pizzaria-->
+<section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-16">
+  <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+    <div class="mb-4 flex items-center justify-between gap-4 md:mb-8">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Explore nosso cardápio</h2>
+
+      <a href="#" title="Ver todas categorias" class="flex items-center text-base font-medium text-primary-700 hover:underline dark:text-primary-500">
+        Ver todas
+        <svg class="ms-1 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <!-- Categoria: Pizzas -->
+      <a href="#" class="flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <svg class="me-2 h-5 w-5 shrink-0 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 0 0 20 0c0-5.52-4.48-10-10-10Zm1 14a1 1 0 1 1-2 0v-4a1 1 0 1 1 2 0v4Zm0-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
+        </svg>
+        <span class="text-sm font-medium text-gray-900 dark:text-white">Pizzas</span>
+      </a>
+
+      <!-- Categoria: Bebidas -->
+      <a href="#" class="flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <svg class="me-2 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M8 2h8v2H8V2Zm8 2v2H8V4H4v16h16V4h-4Z"/>
+        </svg>
+        <span class="text-sm font-medium text-gray-900 dark:text-white">Bebidas</span>
+      </a>
+
+      <!-- Categoria: Sobremesas -->
+      <a href="#" class="flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <svg class="me-2 h-5 w-5 shrink-0 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2c2 0 3 1 3 2s-1 2-3 2-3-1-3-2 1-2 3-2Zm0 8c4 0 7 3 7 7H5c0-4 3-7 7-7Z"/>
+        </svg>
+        <span class="text-sm font-medium text-gray-900 dark:text-white">Sobremesas</span>
+      </a>
+
+      <!-- Categoria: Promoções -->
+      <a href="#" class="flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <svg class="me-2 h-5 w-5 shrink-0 text-yellow-500 dark:text-yellow-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+        <span class="text-sm font-medium text-gray-900 dark:text-white">Promoções</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+ <!-- RODAPÉ -->
+<footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+  <div class="mx-auto max-w-screen-xl text-center">
+      <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+          <svg class="mr-2 h-8" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- SVG do logo (adicione o seu próprio logo aqui) -->
+          </svg>
+          Pizzaria do Cyro
+      </a>
+      <p class="my-6 text-gray-500 dark:text-gray-400">A melhor pizza artesanal, feita com amor e ingredientes selecionados. Entrega rápida e sabor incomparável!</p>
+      <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre Nós</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Menu</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6 ">Promoções</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Contato</a>
+          </li>
+      </ul>
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2021-2022 <a href="#" class="hover:underline">Pizzaria do Cyro™</a>. Todos os Direitos Reservados.</span>
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- SwiperJS JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
+
+
+</body>
+</html>
